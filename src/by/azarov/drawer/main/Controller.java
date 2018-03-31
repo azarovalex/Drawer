@@ -14,7 +14,7 @@ public class Controller {
     private Canvas mainCanvas;
 
     private Shape currentShape;
-    private StackOfShapes stack = new StackOfShapes();
+    private ListOfShapes stack = new ListOfShapes();
     private ShapeCreator shapeCreator = new ShapeCreator("Line");
     private GraphicsContext gc;
 
@@ -52,18 +52,18 @@ public class Controller {
     }
 
     public void shapeBtnWasClicked(MouseEvent event) {
-        shapeCreator.setCreatingType(((Button) event.getSource()).getId());
+        shapeCreator.setCurrentFactory(((Button) event.getSource()).getId());
     }
 
     public void clearCanvas(MouseEvent event) {
         gc.clearRect(1, 1, mainCanvas.getWidth() - 2, mainCanvas.getHeight() - 2);
         if (event != null) {
-            stack = new StackOfShapes();
+            stack = new ListOfShapes();
         }
     }
 
-    public void drawAllFigures(MouseEvent mouseEvent) {
-        StackOfShapes demoList = new StackOfShapes();
+    public void drawAllFigures() {
+        ListOfShapes demoList = new ListOfShapes();
 
         Line demoLine = new Line();
         demoLine.setFirstPoint(new Point2D.Double(10, 10));

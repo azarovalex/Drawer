@@ -2,11 +2,11 @@ package by.azarov.drawer.shapes;
 
 import javafx.scene.canvas.GraphicsContext;
 
-public class StackOfShapes implements Drawable {
+public class ListOfShapes implements Drawable {
     private Shape[] arrayOfShapes;
     private int pointer;
 
-    public StackOfShapes() {
+    public ListOfShapes() {
         arrayOfShapes = new Shape[256];
         pointer = 0;
     }
@@ -16,10 +16,7 @@ public class StackOfShapes implements Drawable {
     }
 
     public void pop() {
-        if (pointer > 0) {
-            pointer -= 1;
-        }
-
+        pointer = (pointer > 0 ? pointer - 1 : 0);
     }
 
     @Override
